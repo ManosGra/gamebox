@@ -1,0 +1,766 @@
+    body {
+        background-color: #0F0F0F;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    span {
+        color: #E0E0E0 !important;
+    }
+
+    p {
+        font-weight: 400;
+        line-height: 1.3;
+        letter-spacing: 0.5px;
+        color: #E0E0E0 !important;
+    }
+
+    h2,
+    h5,
+    h6 {
+        font-weight: 400;
+        line-height: 1.3;
+        letter-spacing: 0.5px;
+        color: #E0E0E0;
+    }
+
+    @media screen and (max-width: 767px) {
+        h2 {
+            text-align: center;
+        }
+    }
+
+    h4 {
+        font-weight: 400;
+        line-height: 1.3;
+        letter-spacing: 0.5px;
+        color: #E0E0E0;
+        font-size: 21px;
+    }
+
+    .nav-bar {
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        top: 0;
+        background-color: #000000c3;
+        transition: top 0.3s ease-in-out;
+    }
+
+    .responsive-nav {
+        display: none !important;
+    }
+
+    .responsive-nav {
+        background: white;
+        border-bottom: 1px solid #ddd;
+        padding: 1rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .hamburger {
+        width: 30px;
+        height: 22px;
+        position: relative;
+        cursor: pointer;
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        z-index: 3;
+    }
+
+    .hamburger span {
+        height: 3px;
+        background: #333;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(40deg) translateY(13px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-43deg) translateY(-12px);
+    }
+
+    @media screen and (max-width: 767px) {
+        .nav-bar {
+            display: none;
+        }
+
+        .responsive-nav {
+            display: block !important;
+        }
+
+        .hamburger {
+            display: flex;
+        }
+
+        nav {
+            position: fixed;
+            top: 111px;
+            left: 0;
+            height: 100vh;
+            width: 100%;
+            background: white;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        nav.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        nav a {
+            padding: 1rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+    }
+
+    .nav-bar .container-lg {
+        position: relative;
+        /* Για να επιτρέψουμε τη σωστή τοποθέτηση των γραμμών κάτω από το navigation */
+    }
+
+    /* Στυλ για τα links στις κατηγορίες */
+    .nav-bar .nav-links a {
+        position: relative;
+        text-decoration: none;
+        color: white;
+        padding-bottom: 5px;
+        transition: color 0.3s ease;
+        display: inline-block;
+    }
+
+    /* Underline κατά το hover */
+    .nav-bar .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        /* Μετακίνηση 5px κάτω από το link */
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: #fff;
+        /* Χρώμα γραμμής */
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.3s ease;
+    }
+
+    /* Όταν γίνεται hover, η γραμμή εμφανίζεται από δεξιά προς αριστερά */
+    .nav-bar .nav-links a:hover::after,
+    .nav-bar .nav-links a.active::after {
+        transform: scaleX(1);
+        transform-origin: center;
+    }
+
+    /* Στυλ για την κατηγορία που είναι ενεργή */
+    .nav-bar .nav-links a.active::after {
+        transform: scaleX(1);
+        transform-origin: left;
+        background-color: #991b1b;
+        /* Κόκκινη γραμμή όταν είναι active */
+        height: 3px;
+    }
+
+    /* Προσαρμογή για τη σωστή εμφάνιση της γραμμής κάτω από τα στοιχεία στο hover */
+    .nav-bar .nav-links a:hover {
+        color: #991b1b;
+        /* Προαιρετικό: αλλάζει το χρώμα του link όταν κάνετε hover */
+    }
+
+    .nav-bar ul {
+        max-width: 550px;
+        margin: 0 auto;
+    }
+
+    .nav-bar li {
+        letter-spacing: 1px;
+    }
+
+    .nav-bar img {
+        border: 2px solid lightblue;
+    }
+
+    .nav-bar img:hover {
+        border: 2px solid #991b1b;
+    }
+
+    .content-text {
+        color: white !important;
+        max-width: 900px;
+        margin: 50px auto;
+    }
+
+    .content-text a {
+        color: #991b1b;
+    }
+
+    .nav-bar a:hover {
+        color: #991b1b;
+    }
+
+    .pager li .active_link {
+        background-color: lightgray !important;
+    }
+
+    .pager a {
+        border: 1px solid gray;
+        border-radius: 50%;
+        padding: 0 7px;
+    }
+
+    .pager a:hover {
+        color: white;
+    }
+
+    .flex-items {
+        display: flex;
+        align-items: center;
+    }
+
+    .main-content {
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-image {
+        will-change: transform, filter;
+        transition: filter 0.2s ease;
+    }
+
+    .post-title {
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 3rem;
+        z-index: 2;
+    }
+
+    .main-content h1 {
+        position: absolute;
+        top: 75%;
+        z-index: 1;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
+        font-weight: bold;
+        font-size: 60px;
+    }
+
+    @media screen and (max-width: 767px) {
+        .main-content h1 {
+            font-size: 24px;
+        }
+    }
+
+    .main-content .backdrop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, black, transparent);
+        /* μαύρο με 50% διαφάνεια */
+        z-index: 1;
+        /* πάνω από άλλο περιεχόμενο */
+    }
+
+    .main-content img {
+        position: relative;
+        border-radius: 20px;
+        box-shadow: 2px 2px 4px #000;
+    }
+
+    .content-title {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+    }
+
+    .scroll-fade {
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        will-change: transform, opacity;
+    }
+
+    .login-page {
+        text-align: center;
+        height: 100vh;
+        width: 100%;
+        padding-top: 200px;
+        background-image: url('../images/hero.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 20px;
+
+    }
+
+    .relative-login {
+        position: relative;
+        z-index: 1;
+        background-color: #0F0F0F;
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 20px;
+        border: 1px solid white;
+        box-shadow: 2px 2px 4px #000;
+    }
+
+    .relative-login input {
+        background-color: transparent;
+        border: 1px solid gray;
+    }
+
+    .relative-login input::placeholder {
+        color: gray;
+    }
+
+    .login-page .backdrop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, black, transparent);
+        z-index: 0;
+    }
+
+    .login-page .btn {
+        width: 100%;
+    }
+
+    .hero img {
+        border-radius: 15px;
+        box-shadow: 2px 2px 4px #000;
+    }
+
+    .glow-layer {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 16px;
+        background: radial-gradient(ellipse at center,
+                rgba(0, 0, 0, 0) 10%,
+                rgba(0, 0, 0, 0.9) 100%);
+        filter: blur(20px);
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .hero-inner {
+        position: relative;
+    }
+
+    .hero-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 70px;
+    }
+
+    @media screen and (max-width: 1440px) {
+        .hero-content {
+            top: 60%;
+            padding: 70px 20px;
+        }
+    }
+
+    @media screen and (max-width: 991px) {
+        .hero-content {
+            top: 45%;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        .hero-content {
+            top: 50%;
+        }
+
+        .hero img {
+            height: 650px;
+        }
+    }
+
+    @media screen and (max-width: 420px) {
+        .hero-content {
+            top: 50%;
+            padding: 50px 20px;
+        }
+    }
+
+    .hero h1 {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
+        font-weight: bold;
+        max-width: 700px;
+        margin-left: auto;
+    }
+
+    .hero h5 {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
+    }
+
+    .category-hero h1 {
+        position: absolute;
+        top: 50%;
+        z-index: 1;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
+        font-weight: bold;
+        font-size: 120px;
+    }
+
+    @media screen and (max-width: 767px) {
+        .category-hero h1 {
+            font-size: 60px;
+        }
+    }
+
+    .category-hero .glow-layer {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 16px;
+        background: radial-gradient(ellipse at center,
+                rgba(0, 0, 0, 0.6) 20%,
+                /* πιο σκουρόχρωμο στο κέντρο */
+                rgba(0, 0, 0, 0.95) 100%);
+        /* σχεδόν μαύρο στις άκρες */
+        filter: blur(30px);
+        /* λίγο περισσότερο blur για απαλό σβήσιμο */
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .category-container {
+        position: relative;
+        height: 100%;
+        transition: transform 0.3s ease;
+        transform-origin: center center;
+        /* Προαιρετικά, για πιο φυσικό zoom */
+    }
+
+    .category-container:hover {
+        transform: scale(1.015);
+        /* Μεγαλώνει κατά 5% */
+    }
+
+    .category-container-name {
+        position: absolute;
+        bottom: 0;
+    }
+
+    .category-container-name h5 a {
+        margin: 5px;
+    }
+
+    .post-container {
+        height: 100%;
+        transition: transform 0.3s;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0), #000000, rgba(0, 0, 0, 0));
+    }
+
+    .post-container h5 a {
+        color: #E0E0E0;
+    }
+
+    .post-container:hover h5 {
+        color: #991b1b !important;
+    }
+
+    .post-container:hover {
+        transform: scale(1.015);
+        /* Μεγαλώνει κατά 5% */
+    }
+
+    @media screen and (max-width: 991px) {
+        .note-video-clip {
+            width: 100% !important;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        .media {
+            max-width: 420px;
+        }
+
+        .note-video-clip {
+            width: 100% !important;
+        }
+    }
+
+    .header {
+        margin: 0 auto;
+        max-width: calc(100% - 400px);
+        /* Example of setting max-width considering the margins */
+        font-size: 50px;
+    }
+
+    .contact-form {
+        padding-top: 90px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    @media screen and (max-width: 767px) {
+        .contact-form {
+            padding: 0;
+        }
+    }
+
+    .form-wrap {
+        box-shadow: 2px 2px 4px #000;
+    }
+
+    .search-content {
+        padding-top: 120px;
+        min-height: 625px;
+    }
+
+    .search-post img {
+        box-shadow: 2px 2px 4px #000;
+        max-width: 450px;
+        height: 300px;
+    }
+
+    .search-post h1:hover {
+        color: #991b1b !important;
+    }
+
+    .f-bold {
+        font-weight: bold;
+    }
+
+    .box-shadow {
+        box-shadow: 2px 2px 4px #000;
+    }
+
+    .review {
+        position: absolute;
+        top: 66%;
+        z-index: 1;
+    }
+
+    @media screen and (max-width: 1440px) {
+        .review {
+            top: 60%;
+        }
+    }
+
+    @media screen and (max-width: 991px) {
+        .review {
+            top: 45%;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        .review {
+            top: 40%;
+        }
+    }
+
+    @media screen and (max-width: 575px) {
+        .review {
+            top: 60%;
+        }
+    }
+
+    @media screen and (max-width: 420px) {
+        .review {
+            top: 50%;
+        }
+    }
+
+    .text-relative {
+        position: relative;
+        z-index: 1;
+    }
+
+    .blog-post::before {
+        content: "";
+        position: absolute;
+        top: 58%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0), #000000, rgba(0, 0, 0, 0));
+        /* Μαύρο που σβήνει και προς τα πάνω και προς τα κάτω */
+        z-index: -1;
+        /* Να είναι πίσω από το κείμενο */
+    }
+
+    .blog-post:hover h4 {
+        color: #991b1b !important;
+    }
+
+    .share-buttons h3 {
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    @media screen and (max-width: 767px) {
+        .share-buttons {
+            margin: 0 !important;
+        }
+    }
+
+    .side-bar p {
+        color: #9d9d9d !important;
+    }
+
+    .secondary-sidebar {
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 2px 2px 4px #000;
+    }
+
+    @media screen and (max-width: 767px) {
+        .secondary-sidebar h5 {
+            text-align: center;
+        }
+
+        .secondary-sidebar {
+            padding: 20px !important;
+        }
+    }
+
+    .secondary-sidebar input {
+        background-color: transparent;
+        color: white;
+    }
+
+    .secondary-sidebar textarea {
+        background-color: transparent;
+    }
+
+    .secondary-sidebar-content:hover p {
+        color: #991b1b !important;
+    }
+
+    .side-category:hover {
+        color: #E0E0E0 !important;
+    }
+
+    .category-93 {
+        background-color: #2563EB;
+        color: white !important;
+        padding: 3px 10px;
+        border-radius: 7px;
+    }
+
+    .category-99 {
+        background-color: #8B5CF6;
+        color: white !important;
+        padding: 3px 10px;
+        border-radius: 7px;
+    }
+
+    .category-90 {
+        background-color: #F59E0B;
+        color: white !important;
+        padding: 3px 10px;
+        border-radius: 7px;
+    }
+
+    .category-92 {
+        background-color: #06B6D4;
+        color: white !important;
+        padding: 3px 10px;
+        border-radius: 7px;
+    }
+
+    .search-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+    }
+
+    .search-popup.active {
+        display: flex;
+    }
+
+    .popup-inner {
+        background: #0F0F0F;
+        padding: 20px 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        border: 1px solid #222;
+    }
+
+    .popup-inner input {
+        font-size: 1.2rem;
+        padding: 10px;
+        width: 250px;
+        border: 1px solid #222;
+        border-radius: 5px;
+        color: white;
+    }
+
+    .search svg:hover {
+        color: #991b1b;
+        cursor: pointer;
+    }
+
+    footer {
+        background-color: #222;
+    }
+
+    @media screen and (max-width: 767px) {
+        footer {
+            text-align: center;
+        }
+
+        footer h5 {
+            margin-top: 20px;
+        }
+    }
+
+    .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        /* Κίνηση από κάτω προς τα πάνω */
+        transition: all 0.6s ease;
+    }
+
+    .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    footer p {
+        color: white;
+    }
+
+    footer a {
+        color: #9d9d9d;
+    }
+
+    footer a:hover {
+        color: #991b1b !important;
+    }
